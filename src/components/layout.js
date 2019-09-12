@@ -8,9 +8,43 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Header from "./header"
 import "./layout.css"
+
+const LayoutContainer = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100vw;
+`
+
+const MainContainer = styled.main`
+  flex-grow: 1;
+  padding: 0 1.45rem 1rem 1.45rem;
+`
+
+const FooterContainer = styled.footer`
+  padding: 1rem 1.45rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  span {
+    transition: all ease-in-out 1s;
+
+    &:hover {
+      transform: translate(0, -5px);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #023767;
+    border-bottom: 2px solid #94baef;
+  }
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,22 +59,16 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <LayoutContainer>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <MainContainer>{children}</MainContainer>
+        <FooterContainer>
+          <span>
+            © {new Date().getFullYear()},{` `}
+            <a href="https://www.builtbybaucom.com">Built by Baucom</a>
+          </span>
+        </FooterContainer>
+      </LayoutContainer>
     </>
   )
 }
