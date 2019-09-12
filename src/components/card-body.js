@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import Button from "./button"
+
 const StyledBody = styled.div`
   padding: 3rem 2rem;
   background-color: #fff;
@@ -28,34 +30,6 @@ const StyledBody = styled.div`
     justify-content: center;
   }
 `
-
-const StyledButton = styled.a`
-  margin: 1em auto;
-  padding: 0.25em 1em;
-  border: 2px solid ${props => props.color || "#9e0610"};
-  border-radius: 3px;
-  box-shadow: none;
-  background-color: transparent;
-  color: ${props => props.color || "#9e0610"};
-  font-size: 1.25rem;
-  transition: 0.25s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-
-  &:hover {
-    transform: translate(0, 3px);
-  }
-`
-
-const Button = ({ link, text, color }) => {
-  return (
-    <StyledButton href={`${link}`} target="_blank" rel="noopener" color={color}>
-      {text}
-    </StyledButton>
-  )
-}
 
 const CardBody = ({ title, text, link, buttonText, color }) => {
   return (

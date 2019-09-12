@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
+import Button, { MelroseButton } from "../components/button"
 
 import jackielavenderbird from "../images/jackielavenderbird.png"
 import manishabewtra from "../images/manishabewtra.png"
@@ -120,6 +121,9 @@ const IndexPage = () => (
         color={"RGBA(90, 143, 59, 1.00)"}
         hover={"RGBA(90, 143, 59, .80)"}
       />
+      <MelroseButton href="https://www.cityofmelrose.org/elections/pages/find-my-polling-location">
+        Find your polling location
+      </MelroseButton>
     </MainContainer>
   </Layout>
 )
